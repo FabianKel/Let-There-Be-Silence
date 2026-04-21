@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61dba4090bdf53478da109fbb610224, type: 3}
+  m_Name: Level1
+  m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  nombreNivel: Level 1
+  bajo: {fileID: 8300000, guid: ce55aadbeaf5e9a4d94457298103f791, type: 3}
+  bateria: {fileID: 8300000, guid: 767d1623cb393b844b3042076e8a5ea3, type: 3}
+  piano: {fileID: 8300000, guid: a925469267955064a979776489cf5128, type: 3}
+  RythmFile: Level1-RhythmData.json
+  initialPlayerPosition: {x: 0, y: 0}

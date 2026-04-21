@@ -26,24 +26,23 @@ public class Bullet : MonoBehaviour
 
         rb.linearVelocity = direction * speed;
 
-        StartCoroutine(_originPool.ReleaseAfterTime(gameObject, 3f));
+        StartCoroutine(_originPool.ReleaseAfterTime(gameObject, 1f));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (type == BulletType.Silence)
+        Health targetHealth = collision.GetComponent<Health>();
+
+        if (targetHealth != null)
         {
-            if (collision.CompareTag("Enemy") || collision.CompareTag("EnemyBullet"))
-            {
-                ReturnToPool();
-            }
+            targetHealth.TakeDamage(1, type);
+            ReturnToPool();
         }
-        else if (type == BulletType.Note)
+
+        if ((type == BulletType.Silence && collision.CompareTag("EnemyBullet")) ||
+            (type == BulletType.Note && collision.CompareTag("PlayerBullet")))
         {
-            if (collision.CompareTag("Player") || collision.CompareTag("PlayerBullet"))
-            {
-                ReturnToPool();
-            }
+            ReturnToPool();
         }
     }
 

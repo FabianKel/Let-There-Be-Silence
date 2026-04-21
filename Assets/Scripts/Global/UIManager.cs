@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
     [Header("Panels")]
     public GameObject mainMenuPanel;
     public GameObject settingsPanel;
+    public CanvasGroup mainMenuCanvasGroup;
     public GameObject pausePanel;
     public GameObject confirmationPanel;
 
@@ -13,6 +15,12 @@ public class UIManager : MonoBehaviour
     public TMPro.TextMeshProUGUI confirmationText;
 
     private string confirmationTarget;
+
+    [Header("Transitions")]
+    public Animator imageAnimator;
+    public string animationTriggerName = "phasing";
+    public string startFrameTriggerName = "startFrame";
+    public float fadeDuration = 1.0f;
 
     void Start()
     {
@@ -23,32 +31,60 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !mainMenuPanel.activeSelf)
         {
-            bool isCurrentlyPaused = pausePanel.activeSelf;
-            TogglePause(!isCurrentlyPaused);
+            TogglePause(!pausePanel.activeSelf);
         }
     }
 
     public void ShowMainMenu()
     {
+        if (RhythmManager.Instance) RhythmManager.Instance.StopRhythm();
+        if (AudioMixer.Instance) AudioMixer.Instance.StopAllAudio();
+
         ResetAllPanels();
         mainMenuPanel.SetActive(true);
+        imageAnimator.gameObject.SetActive(true);
+
+        if (imageAnimator != null)
+            imageAnimator.SetTrigger(startFrameTriggerName);
     }
 
     public void PlayGame()
     {
-        ResetAllPanels();
-        Debug.Log("Game Started!");
+        var raycaster = mainMenuPanel.GetComponent<GraphicRaycaster>();
+        if (raycaster != null) raycaster.enabled = false;
+
+        StartCoroutine(PlaySequence());
     }
 
-    public void ShowSettings()
+    private IEnumerator PlaySequence()
     {
-        settingsPanel.SetActive(true);
+        if (imageAnimator != null) imageAnimator.SetTrigger(animationTriggerName);
+
+        LevelManager.Instance.PrepararNivel();
+
+        float counter = 0;
+        while (counter < fadeDuration)
+        {
+            counter += Time.deltaTime;
+            if (mainMenuCanvasGroup != null)
+                mainMenuCanvasGroup.alpha = Mathf.Lerp(1, 0, counter / fadeDuration);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        RhythmManager.Instance.StartRhythm();
+        AudioMixer.Instance.StartAudio();
+
+        mainMenuPanel.SetActive(false);
+
+        var raycaster = mainMenuPanel.GetComponent<GraphicRaycaster>();
+        if (raycaster != null) raycaster.enabled = true;
     }
 
-    public void CloseSettings()
-    {
-        settingsPanel.SetActive(false);
-    }
+
+    public void ShowSettings() => settingsPanel.SetActive(true);
+    public void CloseSettings() => settingsPanel.SetActive(false);
 
     public void TogglePause(bool isPaused)
     {
@@ -56,45 +92,33 @@ public class UIManager : MonoBehaviour
         Time.timeScale = isPaused ? 0f : 1f;
     }
 
-    public void ResumeGame()
-    {
-        TogglePause(false);
-    }
+    public void ResumeGame() => TogglePause(false);
 
     public void RequestQuit()
     {
         confirmationTarget = "Quit";
-        confirmationText.text = "Are you sure you want to quit the game?";
+        confirmationText.text = "¿Estás seguro de que quieres salir?";
         confirmationPanel.SetActive(true);
     }
 
     public void RequestMainMenu()
     {
         confirmationTarget = "MainMenu";
-        confirmationText.text = "Are you sure you want to return to Main Menu?";
+        confirmationText.text = "¿Quieres volver al menú principal?";
         confirmationPanel.SetActive(true);
     }
 
     public void ConfirmAction()
     {
-        if (confirmationTarget == "Quit")
-        {
-            Application.Quit();
-            Debug.Log("Quit Game");
-        }
-        else if (confirmationTarget == "MainMenu")
-        {
-            ShowMainMenu();
-        }
+        if (confirmationTarget == "Quit") Application.Quit();
+        else if (confirmationTarget == "MainMenu") ShowMainMenu();
     }
 
-    public void CancelAction()
-    {
-        confirmationPanel.SetActive(false);
-    }
+    public void CancelAction() => confirmationPanel.SetActive(false);
 
     private void ResetAllPanels()
     {
+        mainMenuCanvasGroup.alpha = 1f;
         mainMenuPanel.SetActive(false);
         settingsPanel.SetActive(false);
         pausePanel.SetActive(false);
