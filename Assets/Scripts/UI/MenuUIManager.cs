@@ -26,6 +26,10 @@ public class MenuUIManager : MonoBehaviour
     public string startFrameTriggerName = "startFrame";
     public float fadeDuration = 1.0f;
 
+    [Header("Loading UI")]
+    public GameObject loadingPanel;
+    public Slider loadingBar;
+    public TMPro.TextMeshProUGUI progressText;
     void Start()
     {
         Time.timeScale = 1f;
@@ -59,7 +63,36 @@ public class MenuUIManager : MonoBehaviour
 
     public void PlayLevel(string levelName)
     {
-        SceneManager.LoadScene(levelName);
+        if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
+
+        StartCoroutine(LoadLevelAsync(levelName));
+    }
+
+    private IEnumerator LoadLevelAsync(string levelName)
+    {
+        if (loadingPanel != null) loadingPanel.SetActive(true);
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(levelName);
+
+        operation.allowSceneActivation = false;
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+
+            if (loadingBar != null) loadingBar.value = progress;
+            Debug.Log($"Cargando nivel... {Mathf.RoundToInt(progress * 100)}%");
+            if (progressText != null) progressText.text = $"Cargando nivel... {Mathf.RoundToInt(progress * 100)}%";
+
+            if (operation.progress >= 0.9f)
+            {
+                if (progressText != null) progressText.text = "¡Listo! Entrando...";
+                yield return new WaitForSeconds(1f);
+                operation.allowSceneActivation = true;
+            }
+
+            yield return null;
+        }
     }
 
     private IEnumerator PlaySequence()

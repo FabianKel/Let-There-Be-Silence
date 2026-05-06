@@ -218,12 +218,12 @@ TextureImporter:
       name: Notes-normal_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 105
-        width: 13
-        height: 12
+        x: 0
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -240,12 +240,12 @@ TextureImporter:
       name: Notes-normal_1
       rect:
         serializedVersion: 2
-        x: 15
-        y: 107
-        width: 10
-        height: 8
+        x: 32
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -262,12 +262,12 @@ TextureImporter:
       name: Notes-normal_2
       rect:
         serializedVersion: 2
-        x: 35
-        y: 105
-        width: 13
-        height: 13
+        x: 64
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -284,12 +284,12 @@ TextureImporter:
       name: Notes-normal_3
       rect:
         serializedVersion: 2
-        x: 47
-        y: 108
-        width: 10
-        height: 8
+        x: 0
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -306,12 +306,12 @@ TextureImporter:
       name: Notes-normal_4
       rect:
         serializedVersion: 2
-        x: 67
-        y: 105
-        width: 13
-        height: 13
+        x: 32
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -328,12 +328,12 @@ TextureImporter:
       name: Notes-normal_5
       rect:
         serializedVersion: 2
-        x: 79
-        y: 108
-        width: 10
-        height: 8
+        x: 64
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -350,12 +350,12 @@ TextureImporter:
       name: Notes-normal_6
       rect:
         serializedVersion: 2
-        x: 3
-        y: 73
-        width: 13
-        height: 13
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -372,12 +372,12 @@ TextureImporter:
       name: Notes-normal_7
       rect:
         serializedVersion: 2
-        x: 15
-        y: 76
-        width: 10
-        height: 8
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -394,12 +394,12 @@ TextureImporter:
       name: Notes-normal_8
       rect:
         serializedVersion: 2
-        x: 35
-        y: 74
-        width: 13
-        height: 12
+        x: 64
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -416,12 +416,12 @@ TextureImporter:
       name: Notes-normal_9
       rect:
         serializedVersion: 2
-        x: 47
-        y: 76
-        width: 10
-        height: 8
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -438,12 +438,12 @@ TextureImporter:
       name: Notes-normal_10
       rect:
         serializedVersion: 2
-        x: 67
-        y: 74
-        width: 13
-        height: 12
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -452,248 +452,6 @@ TextureImporter:
       bones: []
       spriteID: 30cad9f690e186360800000000000000
       internalID: 7163008233208916995
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Notes-normal_11
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 76
-        width: 10
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 31e3493431b2df830800000000000000
-      internalID: 4106485796969922067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Notes-normal_12
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 42
-        width: 13
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0d044ebc389326660800000000000000
-      internalID: 7377522377810526416
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Notes-normal_13
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 44
-        width: 10
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bd5c63c33a180e4d0800000000000000
-      internalID: -3107341204795767333
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Notes-normal_14
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 42
-        width: 13
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7fad5ff6d143a3fd0800000000000000
-      internalID: -2361517753565324553
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Notes-normal_15
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 43
-        width: 10
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 75c0c842fb7c9bd90800000000000000
-      internalID: -7081409315297555369
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Notes-normal_16
-      rect:
-        serializedVersion: 2
-        x: 67
-        y: 42
-        width: 13
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2dbd3803804ff6040800000000000000
-      internalID: 4643198056853134290
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Notes-normal_17
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 43
-        width: 10
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7687e694072cdbe50800000000000000
-      internalID: 6826826397687642215
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Notes-normal_18
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 9
-        width: 13
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 92dda2c2004030200800000000000000
-      internalID: 144964011793505577
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Notes-normal_19
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 11
-        width: 10
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cfba87b21ee3fef40800000000000000
-      internalID: 5759891585248046076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Notes-normal_20
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 9
-        width: 13
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ad59b780a57a4ee30800000000000000
-      internalID: 4531931130172773850
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Notes-normal_21
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 11
-        width: 10
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c8c9ff3d31cbf8160800000000000000
-      internalID: 7030044336695778444
       vertices: []
       indices: 
       edges: []
@@ -710,23 +468,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Notes-normal_0: -2595126516010527807
       Notes-normal_1: 3453120287710544311
       Notes-normal_10: 7163008233208916995
-      Notes-normal_11: 4106485796969922067
-      Notes-normal_12: 7377522377810526416
-      Notes-normal_13: -3107341204795767333
-      Notes-normal_14: -2361517753565324553
-      Notes-normal_15: -7081409315297555369
-      Notes-normal_16: 4643198056853134290
-      Notes-normal_17: 6826826397687642215
-      Notes-normal_18: 144964011793505577
-      Notes-normal_19: 5759891585248046076
       Notes-normal_2: 879794111522188236
-      Notes-normal_20: 4531931130172773850
-      Notes-normal_21: 7030044336695778444
       Notes-normal_3: -1115983589315253009
       Notes-normal_4: -3559933235127798589
       Notes-normal_5: 5537904637129148375
