@@ -9,9 +9,36 @@ public class LevelManager : MonoBehaviour
     [Header("Configuración del Nivel Actual")]
     public LevelData nivelActual;
 
+    [Header("Flujo de Niveles")]
+    public string[] nivelesDisponibles = { "Nivel1", "Nivel2", "Nivel3" };
+    private int indiceNivelActual = 0;
+
+    public void CargarSiguienteNivel()
+    {
+        indiceNivelActual++;
+        if (indiceNivelActual < nivelesDisponibles.Length)
+        {
+            SceneLoader.Instance.LoadLevel(nivelesDisponibles[indiceNivelActual]);
+        }
+        else
+        {
+            SceneLoader.Instance.LoadLevel("MainMenu");
+        }
+    }
+
+    public void SeleccionarNivel(int index)
+    {
+        indiceNivelActual = index;
+        SceneLoader.Instance.LoadLevel(nivelesDisponibles[index]);
+    }
+
     void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else Destroy(gameObject);
     }
 

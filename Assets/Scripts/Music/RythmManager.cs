@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.IO;
 using UnityEngine;
 using static DataManager;
@@ -21,7 +22,11 @@ public class RhythmManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else Destroy(gameObject);
     }
 
@@ -44,6 +49,16 @@ public class RhythmManager : MonoBehaviour
     public void StopRhythm()
     {
         isPlaying = false;
+    }
+
+    // Aumentar el pitch al golpear un enemigo
+    public IEnumerator HitEffect()
+    {
+        print(("Hit effect triggered"));
+        gameObject.GetComponent<AudioSource>().pitch = 1.5f;
+        //yield return new WaitForSeconds(0.2f);
+        //gameObject.GetComponent<AudioSource>().pitch -= 0.05f;
+        yield break;
     }
 
     public void LoadData(string fileName)

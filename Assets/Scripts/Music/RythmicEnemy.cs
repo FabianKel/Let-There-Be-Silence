@@ -56,8 +56,16 @@ public class RhythmicEnemy : MonoBehaviour
 
     }
 
+    public void OnHit()
+    {
+        anim.SetTrigger("Hit");
+        StartCoroutine(RhythmManager.Instance.HitEffect());
+        print("Enemy hit on track: " + myTrack);
+    }
+
     public void OnDeath()
     {
+        anim.SetTrigger("Die");
         print("Enemy defeated on track: " + myTrack);
         AudioMixer.Instance.EnemigoDerrotado(myTrack);
 
