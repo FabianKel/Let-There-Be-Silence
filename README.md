@@ -1,4 +1,6 @@
 # Let There Be Silence
+Video de Laboratorio 8: https://youtu.be/a_D3x0pLuQE
+
 Video de Laboratorio 7: https://youtu.be/NMiHv1HTIOI
 
 Click a la imagen para ver demo ⬇
