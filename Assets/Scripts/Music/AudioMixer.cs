@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 public class AudioMixer : MonoBehaviour
 {
     public static AudioMixer Instance;
+
+    public event Action OnAllTracksSilenced;
 
     [Header("Audio Sources")]
     public AudioSource pistaBateria;
@@ -63,6 +66,7 @@ public class AudioMixer : MonoBehaviour
                 ActualizarVolumen(pistaPiano, currentPiano, totalPiano);
                 break;
         }
+        CheckWinCondition();
     }
 
     void ActualizarVolumen(AudioSource source, int actuales, int iniciales)
@@ -73,6 +77,17 @@ public class AudioMixer : MonoBehaviour
         source.volume = Mathf.Clamp01(nuevoVolumen);
 
         print($"Actualizando {source.name}: {actuales}/{iniciales} enemigos. Vol: {source.volume}");
+    }
+
+    private void CheckWinCondition()
+    {
+        if (currentBass <= 0 && currentKit <= 0 && currentPiano <= 0)
+        {
+            Debug.Log("Todas las pistas musicales han sido silenciadas.");
+            StopAllAudio();
+
+            OnAllTracksSilenced?.Invoke();
+        }
     }
 
     public void StopAllAudio()

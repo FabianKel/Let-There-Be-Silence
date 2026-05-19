@@ -42,6 +42,21 @@ public class LevelManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
+    private void OnDestroy()
+    {
+        if (AudioMixer.Instance != null)
+        {
+            AudioMixer.Instance.OnAllTracksSilenced -= Ganar;
+        }
+    }
+
+    private void Start()
+    {
+        if (AudioMixer.Instance != null)
+        {
+            AudioMixer.Instance.OnAllTracksSilenced += Ganar;
+        }
+    }
     public void PrepararNivel()
     {
         if (nivelActual == null) return;
@@ -91,5 +106,15 @@ public class LevelManager : MonoBehaviour
     public void Ganar()
     {
         Debug.Log("¡Nivel completado!");
+
+        if (RhythmManager.Instance != null)
+        {
+            RhythmManager.Instance.StopRhythm();
+        }
+
+        if (InGameUIManager.Instance != null)
+        {
+            InGameUIManager.Instance.ShowVictoryScreen();
+        }
     }
 }

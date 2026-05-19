@@ -1,9 +1,12 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InGameUIManager : MonoBehaviour
 {
+    public static InGameUIManager Instance;
+
     [Header("Scene Names")]
     public string menuSceneName = "Menu";
 
@@ -11,13 +14,27 @@ public class InGameUIManager : MonoBehaviour
     public GameObject pausePanel;
     public GameObject confirmationPanel;
     public GameObject settingsPanel;
+    public GameObject victoryPanel;
 
     [Header("Confirmation")]
     public TextMeshProUGUI confirmationText;
     private string confirmationTarget;
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
+        Time.timeScale = 1f;
+
         if (LevelManager.Instance) LevelManager.Instance.PrepararNivel();
         if (RhythmManager.Instance) RhythmManager.Instance.StartRhythm();
         if (AudioMixer.Instance) AudioMixer.Instance.StartAudio();
@@ -25,16 +42,20 @@ public class InGameUIManager : MonoBehaviour
         pausePanel.SetActive(false);
         confirmationPanel.SetActive(false);
         settingsPanel.SetActive(false);
+        if (victoryPanel != null) victoryPanel.SetActive(false);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (settingsPanel.activeSelf) CloseSettings();
-            else if (confirmationPanel.activeSelf) CancelAction();
-            else TogglePause(!pausePanel.activeSelf);
-        }
+        if (victoryPanel != null && victoryPanel.activeSelf) return;
+
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (settingsPanel.activeSelf) CloseSettings();
+        else if (confirmationPanel.activeSelf) CancelAction();
+        else TogglePause(!pausePanel.activeSelf);
     }
 
     public void TogglePause(bool isPaused)
@@ -44,6 +65,28 @@ public class InGameUIManager : MonoBehaviour
 
         // Pausar audio y ritmo en el futuro
         // if (isPaused) RhythmManager.Instance.Pause();
+    }
+
+    public void ShowVictoryScreen()
+    {
+        if (victoryPanel != null)
+        {
+            victoryPanel.SetActive(true);
+
+            Time.timeScale = 0f;
+        }
+    }
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ReturnToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(menuSceneName);
     }
 
     public void ResumeGame() => TogglePause(false);
